@@ -85,6 +85,7 @@ console.log(
 console.log(disemvowel('What are you, a communist?'));
 
 /*** -------------------------------- ***/
+
 console.log('*** --- Fibonacci --- ***');
 // Fibonacci sequence
 function fibo(nth) {
@@ -100,3 +101,39 @@ function fibo(nth) {
 console.log('5th', fibo(5)); // expect 5
 console.log('10th', fibo(10)); // expect 55
 console.log('43rd', fibo(43)); // expect 433494437
+
+/*** -------------------------------- ***/
+
+console.log('*** --- Find the odd INT --- ***');
+// Given an array of integers, find the one that appears an odd number of times.
+function findOdd(A) {
+  for (const i of A) {
+    if (A.filter((x) => x === i).length % 2 === 1) {
+      return i;
+    }
+  }
+}
+console.log('-1', findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]));
+console.log('5', findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+console.log('10', findOdd([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1]));
+
+/*** -------------------------------- ***/
+
+console.log('*** --- Valid Pin --- ***');
+// ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+function validatePIN(pin) {
+  return (
+    pin.split('').filter((n) => !(Number(n) > -1)).length === 0 &&
+    (pin.length === 4 || pin.length === 6)
+  );
+}
+
+console.log('false', validatePIN('a234'));
+console.log('false', validatePIN('1.234'));
+console.log('true', validatePIN('234234'));
+console.log('false', validatePIN('-1234'));
+console.log(
+  'false',
+  validatePIN(`123
+`)
+); // still fails.. check later
