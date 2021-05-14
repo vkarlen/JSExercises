@@ -85,3 +85,18 @@ console.log(
 console.log(disemvowel('What are you, a communist?'));
 
 /*** -------------------------------- ***/
+console.log('*** --- Fibonacci --- ***');
+// Fibonacci sequence
+function fibo(nth) {
+  let currFib = [0, 1];
+  let currNum = 1;
+  for (let i = 1; i < nth; i++) {
+    currNum = Number(currFib[currFib.length - 1] + currFib[currFib.length - 2]);
+    currFib.push(currNum);
+  }
+  return currNum;
+}
+
+console.log('5th', fibo(5)); // expect 5
+console.log('10th', fibo(10)); // expect 55
+console.log('43rd', fibo(43)); // expect 433494437
